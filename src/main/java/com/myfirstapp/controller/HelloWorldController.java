@@ -1,5 +1,6 @@
 package com.myfirstapp.controller;
 
+import com.myfirstapp.model.User;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -18,5 +19,10 @@ public class HelloWorldController {
     @GetMapping("/param/{name}")
     public String sayHelloParam(@PathVariable String name) {
         return "Hello " + name + "!";
+    }
+
+    @GetMapping("/post")
+    public String sayHello(@RequestBody User user) {
+        return "Hello " + user.getFirstName() + " " + user.getLastName() + "!";
     }
 }
